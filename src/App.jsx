@@ -1,10 +1,19 @@
 import { useEffect } from 'react'
 import { useState } from 'react'
-import './App.css'
 import ListDisplay from './components/ListDisplay'
+import PokeDisplay from './components/PokeDisplay'
+import Form from './components/Form'
+import './App.css'
+
 
 function App() {
+  // these two have different keys in their objects
+  //the first one had next, previous, results (which is an array with name and url)
+  // set the state for the list of Pokemon
   const [pokemons, setPokemons] = useState([])
+  // set the state for the individual Pokemon
+  // this is an object with a lot of keys to describe an individual pokemon
+  const [pokemon, setPokemon] = useState({})
 
   let url = 'https://pokeapi.co/api/v2/pokemon?limit=20'
 
@@ -39,7 +48,15 @@ useEffect(() => {getPokemons(url)}, [])
   return (
     <>
       <h1>Pokemon App</h1>
-      <ListDisplay pokeList={pokemons} />
+      <p> You can search for a pokemon by name or by id. If you are't sure about the names
+        you can scan through the list of Pokemon below by using the 'next' and 'back' buttons.
+      </p>
+      <h2>Find a Pokemon </h2>
+      <Form newPokemon={setPokemon} />
+      <h2>Individual Pokemon</h2>
+      <PokeDisplay pokemon = {pokemon}/>
+      {pokemon && pokemon.species ? <h3>{pokemon.species.name}</h3> : <h3>Search for a valid name or id</h3>}
+      <ListDisplay pokeList={pokemons} getPokemons={getPokemons} />
     </>
   )
 }

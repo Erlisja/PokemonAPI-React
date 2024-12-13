@@ -1,7 +1,7 @@
 import React from 'react'
 import pokeball from '../images/pokemon-1536849_1280_720.png'
 function ListDisplay(
-    {pokeList}
+    {pokeList, getPokemons} // this is the prop that is being passed in
 ) {
   return (
     <div>
@@ -21,6 +21,11 @@ function ListDisplay(
                 }))
             }
         </ul>
+
+            {/* the api  returns a previous and next url, the previos and next are inside the OBJECT that is returned, this is why we can use the pokeList.previous and pokeList.next */}
+            {/* // if the previous is not null, then show the button, so if we have prev pokemon than show the button.. in the first page the back bttn wont be displayed */}
+       {pokeList.previous ? <button onClick={() => getPokemons(pokeList.previous)}>Back</button>: <></>} {' '}
+       {pokeList.next ? <button onClick={() => getPokemons(pokeList.next)}>Next</button> : <></>}
     </div>
   )
 }

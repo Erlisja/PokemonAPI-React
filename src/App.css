@@ -5,38 +5,40 @@
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  /* background-color: hsl(350, 20%, 90%); */
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+ul li {
+  padding: 0 5px;
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+a:link {
+  color: hsl(350, 40%, 70%);
+  background-color: hsl(350, 40%, 30%);
 }
 
-.card {
-  padding: 2em;
+a:visited {
+  color: hsl(340, 40%, 70%);
+  background-color: hsl(340, 40%, 30%);
 }
 
-.read-the-docs {
-  color: #888;
+a:hover {
+  background-color: hsl(290, 40%, 70%);
+  color: hsl(290, 40%, 30%);
+}
+
+a:active {
+  background-color: hsl(200, 40%, 70%);
+  color: hsl(200, 40%, 30%);
 }
