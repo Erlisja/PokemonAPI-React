@@ -11,7 +11,7 @@ function PokeDisplay({pokemon}) {
 
         return(
             <>
-         <img src={pokeball} alt='pokeball' height= '50px' />
+         <img className='spin' src={pokeball} alt='pokeball' height= '50px' />
             <h3>Still waiting </h3>
          </>
         )
